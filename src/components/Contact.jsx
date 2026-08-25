@@ -6,6 +6,14 @@ export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalDetails.email);
@@ -19,10 +27,44 @@ export default function Contact() {
     setTimeout(() => setCopiedPhone(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 4000);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'feca5bdb-76b9-4e79-b00d-cb99b4bd6d25';
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          from_name: `${formData.name} via Portfolio`,
+          ...formData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setErrorMessage(data.message || 'Failed to send message. Please check your access key.');
+      }
+    } catch (error) {
+      setErrorMessage('Network error. Please try sending again or reach out via email directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -148,11 +190,20 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono text-gray-400 mb-1">Your Name</label>
                       <input
                         type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         required
                         placeholder="John Doe"
                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm transition-colors"
@@ -162,6 +213,9 @@ export default function Contact() {
                       <label className="block text-xs font-mono text-gray-400 mb-1">Your Email</label>
                       <input
                         type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                         placeholder="john@example.com"
                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm transition-colors"
@@ -173,6 +227,9 @@ export default function Contact() {
                     <label className="block text-xs font-mono text-gray-400 mb-1">Subject</label>
                     <input
                       type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       required
                       placeholder="Opportunity / SDE Role / Collaboration"
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm transition-colors"
@@ -183,6 +240,9 @@ export default function Contact() {
                     <label className="block text-xs font-mono text-gray-400 mb-1">Message</label>
                     <textarea
                       rows={4}
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       required
                       placeholder="Hello Mayank, we saw your portfolio and would like to discuss..."
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm transition-colors resize-none"
@@ -191,10 +251,11 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="send-action w-full py-3.5 px-6 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2 group"
+                    disabled={isSubmitting}
+                    className="send-action w-full py-3.5 px-6 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Send Message</span>
-                    <FaPaperPlane className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                    <FaPaperPlane className={`w-3.5 h-3.5 transition-transform ${isSubmitting ? 'animate-pulse' : 'group-hover:translate-x-1'}`} />
                   </button>
                 </form>
               )}
