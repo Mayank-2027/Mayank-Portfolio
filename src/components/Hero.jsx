@@ -51,7 +51,11 @@ export default function Hero() {
                 <span>Explore details</span>
                 <FaArrowRight className="h-4 w-4" />
               </a>
-              <a href="/resume.pdf" download="Mayank_Chandravanshi_Resume.pdf" className="secondary-action">
+              <a
+                href={`${import.meta.env.BASE_URL}Mayank_Chandravanshi_Resume.pdf`}
+                download="Mayank_Chandravanshi_Resume.pdf"
+                className="secondary-action"
+              >
                 <FaFileDownload className="h-4 w-4" />
                 <span>Resume</span>
               </a>
