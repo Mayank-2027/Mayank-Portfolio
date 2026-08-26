@@ -16,7 +16,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="hero-section hero-name-stage relative flex min-h-screen items-end overflow-hidden px-4 pb-12 pt-28 sm:px-6 lg:px-8">
+    <section id="hero" className="hero-section hero-name-stage relative flex min-h-[100dvh] items-start overflow-hidden px-4 pb-12 pt-16 sm:pt-20 sm:px-6 lg:px-8">
       <div className="hero-grid" />
 
       <motion.div
@@ -25,7 +25,7 @@ export default function Hero() {
         transition={{ staggerChildren: 0.12 }}
         className="relative z-10 mx-auto w-full max-w-7xl"
       >
-        <motion.div variants={itemVariants} className="status-line mb-8">
+        <motion.div variants={itemVariants} className="status-line mb-6 sm:mb-8">
           <span className="status-dot" />
           Available for SDE and full-stack roles
         </motion.div>
@@ -46,9 +46,9 @@ export default function Hero() {
             <p>{personalDetails.title}</p>
             <span>{personalDetails.tagline}</span>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a href="#about" className="primary-action">
-                <span>Explore details</span>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <a href="#contact" className="primary-action hire-action">
+                <span>Hire Me</span>
                 <FaArrowRight className="h-4 w-4" />
               </a>
               <a
@@ -58,6 +58,9 @@ export default function Hero() {
               >
                 <FaFileDownload className="h-4 w-4" />
                 <span>Resume</span>
+              </a>
+              <a href="#about" className="secondary-action">
+                <span>Explore details</span>
               </a>
               <div className="flex gap-2">
                 <a href={personalDetails.github} target="_blank" rel="noopener noreferrer" className="icon-action" aria-label="GitHub Profile">

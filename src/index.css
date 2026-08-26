@@ -76,9 +76,9 @@ a {
 
 .hero-grid {
   position: absolute;
-  inset: 96px 24px 24px;
+  inset: 72px 16px 16px;
   border: 1px solid rgba(23, 32, 24, 0.08);
-  border-radius: 28px;
+  border-radius: 24px;
   pointer-events: none;
 }
 
@@ -182,12 +182,12 @@ a {
 .hero-name-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(26px, 6vw, 72px);
-  align-items: end;
+  gap: clamp(20px, 4vw, 56px);
+  align-items: start;
 }
 
 .hero-name {
-  margin-top: 10px;
+  margin-top: 6px;
   color: #101611;
   max-width: 100%;
   font-size: clamp(3.2rem, 10.4vw, 9.25rem);
@@ -414,18 +414,18 @@ a {
 
 @media (max-width: 720px) {
   .hero-grid {
-    inset: 88px 12px 16px;
+    inset: 68px 12px 16px;
     border-radius: 20px;
   }
 
   .hero-name-stage {
-    align-items: center;
-    padding-bottom: 32px;
-    padding-top: 92px;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    padding-top: 72px;
   }
 
   .status-line {
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
 
   .hero-intro {
