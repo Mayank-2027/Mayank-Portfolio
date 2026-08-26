@@ -103,7 +103,7 @@ export default function Contact() {
                   <span className="text-xs font-mono text-gray-400 block">Email Address</span>
                   <a
                     href={`mailto:${personalDetails.email}`}
-                    className="text-sm sm:text-base font-semibold text-white hover:text-blue-400 transition-colors"
+                    className="text-xs sm:text-base font-semibold text-white hover:text-blue-400 transition-colors break-all block"
                   >
                     {personalDetails.email}
                   </a>

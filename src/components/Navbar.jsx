@@ -44,12 +44,12 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 rounded-full border border-slate-900/10 bg-white/65 px-4 py-1.5 shadow-sm backdrop-blur">
+          <nav className="hidden md:flex items-center gap-0.5 sm:gap-1 rounded-full border border-slate-900/10 bg-white/65 px-2.5 sm:px-4 py-1 sm:py-1.5 shadow-sm backdrop-blur">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-950 hover:bg-slate-950/5 rounded-full transition-all"
+                className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-950 hover:bg-slate-950/5 rounded-full transition-all"
               >
                 {link.name}
               </a>
