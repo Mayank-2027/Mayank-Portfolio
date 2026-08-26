@@ -16,7 +16,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="hero-section hero-name-stage relative flex min-h-[100dvh] items-start overflow-hidden px-4 pb-12 pt-16 sm:pt-20 sm:px-6 lg:px-8">
+    <section id="hero" className="hero-section hero-name-stage relative flex flex-col justify-start overflow-hidden px-4 pb-10 sm:pb-14 lg:pb-16 pt-16 sm:pt-20 lg:pt-22 sm:px-6 lg:px-8">
       <div className="hero-grid" />
 
       <motion.div
