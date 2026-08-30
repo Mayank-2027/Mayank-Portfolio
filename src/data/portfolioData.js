@@ -1,17 +1,17 @@
 import { 
-  FaJava, FaJs, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaGithub, FaDatabase, FaServer, FaCode, FaLaptopCode
+  FaJava, FaJs, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaGithub, FaDatabase, FaServer, FaCode, FaLaptopCode, FaCubes, FaProjectDiagram
 } from 'react-icons/fa';
 import { 
-  SiTypescript, SiExpress, SiMongodb, SiMysql, SiPostman, SiVercel, SiRender, SiC
+  SiTypescript, SiExpress, SiMongodb, SiMysql, SiPostman, SiVercel, SiRender, SiC, SiDocker, SiRedis, SiPostgresql
 } from 'react-icons/si';
 
 export const personalDetails = {
   name: "Mayank Chandravanshi",
   title: "Full-Stack MERN Developer",
-  tagline: "Backend-Focused | SDE Aspirant",
-  bio: "Building scalable web applications, REST APIs, and real-time systems.",
-  about: "B.Tech Information Technology student at Jabalpur Engineering College (2027). Passionate about software development, backend engineering, and solving real-world problems through clean architecture and optimized code.",
-  email: "mayankchandravanshi.dev@gmail.com",
+  tagline: "Backend-Focused | Microservices & System Design | SDE Aspirant",
+  bio: "Building scalable web applications, microservices, REST APIs, and real-time distributed systems.",
+  about: "B.Tech Information Technology student at Jabalpur Engineering College (2027). Passionate about backend engineering, microservices architecture, system design, and high-performance databases like Redis & PostgreSQL.",
+  email: "Mayankchandravanshi1977@gmail.com",
   phone: "+916260485020",
   github: "https://github.com/Mayank-2027",
   linkedin: "https://www.linkedin.com/in/mayank-chandravanshi-b4a067287/",
@@ -25,7 +25,7 @@ export const educationData = {
   expectedGraduation: "2027",
   
   highlights: [
-    "Core focus on Data Structures, Algorithms, Systems Architecture, and Database Design",
+    "Core focus on Data Structures, Algorithms, Systems Architecture, Microservices, and Database Design",
     "Active participant in campus hackathons & tech communities"
   ]
 };
@@ -35,7 +35,9 @@ export const coreCS = [
   "Object-Oriented Programming (OOP)",
   "Database Management Systems (DBMS)",
   "Operating Systems (OS)",
-  "Computer Networks (CN)"
+  "Computer Networks (CN)",
+  "System Design (LLD / HLD)",
+  "Microservices Architecture"
 ];
 
 export const skillsCategories = [
@@ -54,26 +56,30 @@ export const skillsCategories = [
       { name: "React", icon: FaReact, color: "text-cyan-400" },
       { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
       { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
-       { name: "Tailwind", icon: FaCss3Alt, color: "text-blue-500" }
+      { name: "Tailwind", icon: FaCss3Alt, color: "text-blue-500" }
     ]
   },
   {
-    title: "Backend",
+    title: "Backend & Systems",
     skills: [
       { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
-      { name: "Express.js", icon: SiExpress, color: "text-gray-300" }
+      { name: "Express.js", icon: SiExpress, color: "text-gray-300" },
+      { name: "Microservices", icon: FaCubes, color: "text-purple-400" }
     ]
   },
   {
-    title: "Database",
+    title: "Databases & Caching",
     skills: [
       { name: "MongoDB", icon: SiMongodb, color: "text-emerald-400" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
+      { name: "Redis", icon: SiRedis, color: "text-red-500" },
       { name: "MySQL", icon: SiMysql, color: "text-blue-400" }
     ]
   },
   {
-    title: "Tools & Platforms",
+    title: "Tools & DevOps",
     skills: [
+      { name: "Docker", icon: SiDocker, color: "text-blue-500" },
       { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
       { name: "GitHub", icon: FaGithub, color: "text-purple-300" },
       { name: "Postman", icon: SiPostman, color: "text-orange-400" },
@@ -82,13 +88,14 @@ export const skillsCategories = [
     ]
   },
   {
-    title: "Core CS Fundamentals",
+    title: "Core CS & Architecture",
     skills: [
+      { name: "System Design", icon: FaProjectDiagram, color: "text-amber-400" },
       { name: "DSA", icon: FaCode, color: "text-blue-400" },
       { name: "OOP", icon: FaLaptopCode, color: "text-indigo-400" },
       { name: "DBMS", icon: FaDatabase, color: "text-green-400" },
       { name: "OS", icon: FaServer, color: "text-teal-400" },
-      { name: "Computer Networks", icon: FaServer, color: "text-sky-400" }
+      { name: "Networks", icon: FaServer, color: "text-sky-400" }
     ]
   }
 ];

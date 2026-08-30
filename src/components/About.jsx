@@ -19,6 +19,8 @@ export default function About() {
 
   const csPillars = [
     { title: "DSA", name: "Data Structures & Algorithms", icon: FaBrain, desc: "Problem solving, time/space complexity optimization, dynamic programming & graphs." },
+    { title: "System Design", name: "HLD & LLD Architecture", icon: FaProjectDiagram, desc: "Scalability, load balancing, caching (Redis), distributed systems & partitioning." },
+    { title: "Microservices", name: "Containers & Distributed Systems", icon: FaServer, desc: "Docker containers, PostgreSQL, REST/gRPC APIs, and decoupled services." },
     { title: "OOP", name: "Object-Oriented Programming", icon: FaCogs, desc: "Modularity, encapsulation, inheritance, polymorphism, design patterns." },
     { title: "DBMS", name: "Database Management Systems", icon: FaDatabase, desc: "Relational schema design, SQL optimization, indexing, ACID transactions & NoSQL." },
     { title: "OS", name: "Operating Systems", icon: FaProjectDiagram, desc: "Process management, multithreading, concurrency, memory allocation & file systems." },

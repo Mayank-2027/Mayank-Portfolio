@@ -188,7 +188,7 @@ a {
 .hero-name-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(20px, 4vw, 56px);
+  gap: clamp(12px, 2.5vw, 24px);
   align-items: start;
 }
 
@@ -215,9 +215,9 @@ a {
 }
 
 .hero-brief {
-  max-width: 520px;
-  border-left: 1px solid rgba(23, 32, 24, 0.16);
-  padding-left: clamp(18px, 3vw, 34px);
+  max-width: 600px;
+  border-left: none;
+  padding-left: 0;
 }
 
 .hero-brief > p {
